@@ -30,8 +30,7 @@ cp .env.example .env
 Run this in a dedicated terminal and keep it running:
 
 ```bash
-set -a; source .env; set +a
-npx hardhat node --fork "$MAINNET_RPC_URL" --chain-id 1 --port 8545
+npx hardhat node --network mainnetFork --port 8545
 ```
 
 All scripts that target `localhostFork` or `RPC_ENDPOINT=http://127.0.0.1:8545` assume this node is running.
@@ -75,13 +74,8 @@ If you need persistent local state across multiple commands, run your own local 
 
 ## Script Reference
 
+
 ### 1) Deploy Safe
-
-```bash
-npx hardhat run --network mainnetFork scripts/deploySafe.ts
-```
-
-or against persistent local node:
 
 ```bash
 npx hardhat run --network localhostFork scripts/deploySafe.ts
